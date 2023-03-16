@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/Funciones.js"></script>
+    <title>Números Abundantes</title>
+</head>
+<body>
+    <script>
+        let num=0;
+        let msg  = "No es abundante";
+
+        num = parseInt(prompt('Ingrese un numero:', ' ')); 
+        if(EsAbundante(num)){
+            msg = "Es Abundante";
+        } 
+        document.write(msg);
+    </script>
+</body>
+</html>
