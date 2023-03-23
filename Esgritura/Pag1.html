@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <script src="js/Funciones.js"></script>
+    <title>Esgritura</title>
+</head>
+<body>
+    <script>
+        let texto;
+        texto = prompt("Ingrese un texto con los '!' que desee.", ' ');
+
+       while(texto != "cancelar"){
+            texto = prompt("Ingrese un texto con los '!' que desee.", ' ');
+            
+        if(EsGritar(texto)){
+            console.log('ESGRITURA');
+        }
+        else{
+            console.log('Escritura');
+        }
+      }
+
+        
+    </script>
+</body>
+</html>
