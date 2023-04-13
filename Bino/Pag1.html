@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/Funciones.js"></script>
+    <title>Bino</title>
+</head>
+<body>
+    <script>
+        let Cont2=0, Cont3=0, Cont4=0, Cont5=0;
+		let CantNum;
+		let Num;
+        
+        CantNum = parseInt(prompt('Ingrese la cantidad de numeros', ''));
+        Num = [CantNum];
+
+		document.write('<table style="border:solid">' + '<tr>');
+		document.write('<td style="border:solid">Entrada' + '</td>');
+		document.write('<td style="border:solid">Salida' + '</td>');
+		document.write('</tr>' + '<tr>');
+		document.write('<td style="border:solid">' + CantNum + '<br>');
+
+		for(let i = 0; i<CantNum; i++){
+			Num[i]= parseInt(prompt('Ingrese un numero', ''));
+			document.write(Num[i] + ' ');	
+		}
+
+		document.write('</td>');
+		document.write('<td style="border:solid">');
+
+		for(let j = 0; j<CantNum; j++){
+			if(ContarMultiplosDe2(Num[j]) == 1){
+				Cont2++;
+			}
+			if(ContarMultiplosDe3(Num[j]) == 1){
+				Cont3++;
+			}
+			if(ContarMultiplosDe4(Num[j]) == 1){
+				Cont4++;
+			}
+			if(ContarMultiplosDe5(Num[j]) == 1){
+				Cont5++;
+			}
+		}
+
+		document.write(Cont2 + ' Multiplo/s de 2'+'<br>');
+		document.write(Cont3 + ' Multiplo/s de 3'+'<br>');
+		document.write(Cont4 + ' Multiplo/s de 4'+'<br>');
+		document.write(Cont5 + ' Multiplo/s de 5'+'<br>');
+
+		document.write('</td>');
+		document.write('</tr>'+'</table>');
+	</script>
+</body>
+</html>
