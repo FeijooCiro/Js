@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desinfección</title>
+</head>
+<body>
+    <script>
+        let Infectado='';
+        let PrimCar='', SegCar='';
+        let Desinfectado='';
+
+        Infectado = prompt('Ingrese la cadena infectada', '');
+        PrimCar = prompt('La infección se basa en que, si hay carácteres infectados, se seleccionan dos carácteres. El primero es la letra repetida, y el segundo es un carácter cualuiera. Este segundo caracter es colocado por la infección en medio de las letras repetidas. Ingrese el primer carácter seleccionado por la infección:', ' ')
+        SegCar = prompt('Ingrese el segundo carácter seleccionado por la infección:', ' ');
+
+        for(let i=0; i<Infectado.length; i++){
+            /*if (Infectado.charAt(i) != PrimCar.charAt(i))
+            
+                {
+                    Desinfectado +=Infectado.charAt(i);
+                }*/
+
+            if(Infectado.charAt(i)==SegCar && Infectado.charAt(i-1)==PrimCar && Infectado.charAt(i+1)==PrimCar){
+                 
+            }else{
+                Desinfectado = Desinfectado + Infectado[i];
+            }
+        }
+        
+        document.write("Archivo desinfectado: " + Desinfectado);
+
+    </script>
+</body>
+</html>
