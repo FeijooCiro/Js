@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partido de Squash</title>
+</head>
+<body>
+    <script>
+        //Equipo A
+        let PuntosA, CartelA = " " ;
+        PuntosA = prompt('Ingrese los puntos, uno por uno, del equipo A (poner "cancelar" para dejar de insertar):', ' ');
+            
+        while(PuntosA != "cancelar"){
+            for(let i = 0; i < PuntosA.length; i++){
+                if(PuntosA != 'A'){
+                    delete(PuntosA[i]);
+                }
+                else{
+                    CartelA = CartelA + PuntosA;
+                    PuntosA = prompt('Ingrese los puntos, uno por uno, del equipo A (poner "cancelar" para dejar de insertar):', ' ');
+                }
+            }
+        }
+        document.write(CartelA);
+
+        //Equipo B
+        let PuntosB, CartelB = " " ;
+        PuntosB = prompt('Ingrese los puntos, uno por uno, del equipo B (poner "cancelar" para dejar de insertar):', ' ');
+            
+        while(PuntosB != "cancelar"){
+            for(let i = 0; i < PuntosB.length; i++){
+                if(PuntosB != 'B'){
+                    delete(PuntosB[i]);
+                }
+                else{
+                    CartelB = CartelB + PuntosB;
+                    PuntosB = prompt('Ingrese los puntos, uno por uno, del equipo B (poner "cancelar" para dejar de insertar):', ' ');
+                }
+            }   
+        }
+        document.write(CartelB);
+
+        document.write("<br>" + CartelA.length + " - " + CartelB.length);
+    </script>
+</body>
+</html>
