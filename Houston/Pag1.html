@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/Funciones.js"></script>
+    <title>Houston</title>
+</head>
+<body>
+    <script>
+        const num = parseInt(prompt('Ingrese la cantidad de números del array.', ' '));
+        const num2 = parseInt(prompt('Ingrese la cantidad de números del array.', ' '));
+        const vector = crearVector(num);
+        const vector2 = crearVector(num2);
+        const vector3 = sumarVectores(vector, vector2);
+
+        if (isNaN(num)) {
+            document.write("Debe ingresar un número válido.");
+        } 
+        else {
+            document.write("Los elementos del vector son : " + vector.join(", "));
+        }
+
+        if (isNaN(num2)) {
+            document.write("<br><br>");
+            document.write("Debe ingresar un número válido.");
+        } 
+        else {
+            document.write("<br><br>");
+            document.write("Los elementos del vector son : " + vector2.join(", "));
+        }
+
+        if (isNaN(vector3)) {
+            document.write("<br><br>");
+            document.write("Valor no numérico.");
+        } 
+        else {
+            document.write("<br><br>");
+            document.write("La suma de los vectores es : " + vector3);
+        }
+    </script>
+</body>
+</html>
