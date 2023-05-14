@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/Funciones.js"></script>
+    <title>Vectores, ejercicios</title>
+</head>
+<body>
+    <script>
+        const n = parseInt(prompt("Ingrese la cantidad de elementos del vector:"));
+        const vectorA = generarVectorAleatorio(n, 32000);
+        const promedioA = calcularPromedio(vectorA);
+        const vectorB = generarVectorB(vectorA, promedioA);
+        const cantidadMultiplosDosTres = contarMultiplosDosTres(vectorA);
+        const sumaA = calcularSuma(vectorA);
+        const vectorC = generarVectorC(vectorA);
+
+        document.write("Vector A: [" + vectorA + "]" + " <br><br>");
+        document.write("Promedio de elementos de A: " + promedioA + "<br><br>");
+        document.write("Vector B: " + vectorB + "<br><br>");
+        document.write("Cantidad de elementos múltiplos de 2 y 3: " + cantidadMultiplosDosTres + "<br><br>");
+        document.write("Suma de elementos de A: " + sumaA + "<br><br>");
+        document.write("Vector C: [" + vectorC + "]");
+    </script>
+</body>
+</html>
