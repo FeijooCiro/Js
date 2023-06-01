@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/Funciones.js"></script>
+    <title>Date</title>
+</head>
+<body>
+    <script>
+        // Obtener la fecha actual
+        const fechaActual = new Date();
+
+        // Ejemplo de uso de la función CantidadDiasAnioNuevo
+        const diasParaAnioNuevo = CantidadDiasAnioNuevo(fechaActual);
+        console.log(`Días restantes para Año Nuevo: ${diasParaAnioNuevo}`);
+
+        // Ejemplo de uso de la función CantidadDiasCatar2022
+        const diasCampeonato = CantidadDiasCatar2022(fechaActual);
+        console.log(`Días transcurridos desde el Mundial de Catar 2022: ${diasCampeonato}`);
+
+        // Ejemplo de uso de la función CantidadAniosCompletos
+        const fechaInicio = new Date(prompt("Ingrese la fecha de inicio (en formato YYYY-MM-DD):"));
+        const fechaFin = new Date(prompt("Ingrese la fecha de fin (en formato YYYY-MM-DD):"));
+
+        // Verificar si las fechas son válidas
+        if (isNaN(fechaInicio) || isNaN(fechaFin)) {
+            console.log("Fechas ingresadas no válidas.");
+        } 
+        else {
+            // Calcular la cantidad de años completos transcurridos
+            const aniosCompletos = CantidadAniosCompletos(fechaInicio, fechaFin);
+            console.log(`Años completos transcurridos entre las fechas: ${aniosCompletos}`);
+        }
+
+        // Ejemplo de uso de la función EsDiaLaborable
+        const esLaborable = EsDiaLaborable(fechaActual);
+        console.log(`¿La fecha actual es un día laborable?: ${esLaborable}`);
+    </script>
+</body>
+</html>
