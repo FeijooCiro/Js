@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form>
+        <p>Ingrese su contraseña: <input type="password" id="password1"></p>
+        <p>Ingrese nuevamente su contraseña: <input type="password" id="password2"></p>
+        <p><input type="button" value="Confirmar" onClick="verificar()"></p>
+    </form>
+    
+    <script>
+        function verificar(){
+        	let pass1 = document.getElementById('password1').value;
+            let pass2 = document.getElementById('password2').value;
+            
+            if(pass1 == pass2){
+            	alert('Contraseña válida.');
+            }
+            else {
+            	alert('Contraseña no válida.');
+            }
+        }
+    </script>
+
+</body>
+</html>

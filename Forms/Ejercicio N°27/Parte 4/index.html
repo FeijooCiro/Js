@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+	<h1>Examen Múltiple Choice</h1>
+
+	<div id="preguntas">
+  		<div>
+    		<h3>Pregunta 1:</h3>
+    		<p>¿Cuál es la capital de Francia?</p>
+    		<select id="respuesta1">
+      			<option value="">Seleccione una respuesta</option>
+      			<option value="paris">París</option>
+      			<option value="londres">Londres</option>
+      			<option value="roma">Roma</option>
+      			<option value="madrid">Madrid</option>
+    		</select>
+  		</div>
+		<br>
+  		<div>
+    		<h3>Pregunta 2:</h3>
+    		<p>¿Cuál es el río más largo del mundo?</p>
+    		<select id="respuesta2">
+      			<option value="">Seleccione una respuesta</option>
+      			<option value="nilo">Nilo</option>
+      			<option value="amazonas">Amazonas</option>
+      			<option value="misisipi">Misisipi</option>
+      			<option value="yangtze">Yangtsé</option>
+    		</select>
+  		</div>
+		<br>
+  		<div>
+    		<h3>Pregunta 3:</h3>
+    		<p>¿Cuál no es un color primario?</p>
+    		<select id="respuesta3">
+      			<option value="">Seleccione una respuesta</option>
+      			<option value="rojo">Rojo</option>
+      			<option value="verde">Verde</option>
+      			<option value="azul">Azul</option>
+      			<option value="amarillo">Amarillo</option>
+    		</select>
+  		</div>
+		<br>
+  		<div>
+    		<h3>Pregunta 4:</h3>
+    		<p>¿Cuál es el animal más grande del mundo?</p>
+    		<select id="respuesta4">
+      			<option value="">Seleccione una respuesta</option>
+      			<option value="elefante">Elefante</option>
+      			<option value="jirafa">Jirafa</option>
+      			<option value="ballena_azul">Ballena azul</option>
+      			<option value="rinoceronte">Rinoceronte</option>
+    		</select>
+  		</div>
+	</div>
+	<br><br>
+	<button onclick="calcularRespuestas()">Calcular Respuestas</button>
+
+	<p>Respuestas Correctas: <span id="correctas"></span></p>
+	<p>Respuestas Incorrectas: <span id="incorrectas"></span></p>
+    
+    <script>
+		function calcularRespuestas() {
+  			// Obtener las respuestas seleccionadas
+  			var respuesta1 = document.getElementById("respuesta1").value;
+ 	 		var respuesta2 = document.getElementById("respuesta2").value;
+  			var respuesta3 = document.getElementById("respuesta3").value;
+  			var respuesta4 = document.getElementById("respuesta4").value;
+
+  			// Contadores para respuestas correctas e incorrectas
+  			var correctas = 0;
+  			var incorrectas = 0;
+
+  			// Verificar las respuestas y contar
+  			if (respuesta1 === "paris") {
+   	 			correctas++;
+  			} 
+            else {
+    			incorrectas++;
+  			}
+
+  			if (respuesta2 === "amazonas") {
+    			correctas++;
+  			} 
+            else {
+    			incorrectas++;
+  			}
+
+  			if (respuesta3 === "verde") {
+    			correctas++;
+  			} 
+            else {
+    			incorrectas++;
+  			}
+
+  			if (respuesta4 === "ballena_azul") {
+    			correctas++;
+  			} 
+            else {
+    			incorrectas++;
+ 	 		}
+
+  			// Mostrar los resultados en los elementos HTML correspondientes
+  			var correctasElement = document.getElementById("correctas");
+  			correctasElement.textContent = correctas;
+
+  			var incorrectasElement = document.getElementById("incorrectas");
+  			incorrectasElement.textContent = incorrectas;
+		}
+    </script>
+
+</body>
+</html>

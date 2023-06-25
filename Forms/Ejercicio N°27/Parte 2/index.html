@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form>
+        <h1>Insertar datos</h1>
+        <p> Procesador: <select id="select1" onChange="administrarDatos()">
+            <option value="400">Intel I3</option>
+            <option value="600">Intel I5</option>
+            <option value="800">Intel I7</option>
+        </select></p>
+        <p> Monitor: <select id="select2" onChange="administrarDatos()">
+            <option value="250">Samsung 20'</option>
+            <option value="350">Samsung 22'</option>
+            <option value="550">Samsung 26'</option>
+        </select></p>
+        <p> Disco Duro: <select id="select3" onChange="administrarDatos()">
+            <option value="300">500 Gb</option>
+            <option value="440">1 Tb</option>
+            <option value="500">3 Tb</option>
+        </select></p>
+        <br>
+        <h1>Precio</h1>
+        <p>Procesador: $<input type="text" id="text1"></p>
+        <p>Monitor: $<input type="text" id="text2"></p>
+        <p>Disco Duro: $<input type="text" id="text3"></p>
+        <input type="button" onclick="calcular()" value="Calcular">
+    </form>
+
+    <script>
+        let seleccion = document.getElementById('select1');
+        let seleccion2 = document.getElementById('select2');
+        let seleccion3 = document.getElementById('select3');
+
+        function administrarDatos() {
+            document.getElementById('text1').value = seleccion.options[seleccion.selectedIndex].value;
+            document.getElementById('text2').value = seleccion2.options[seleccion2.selectedIndex].value;
+            document.getElementById('text3').value = seleccion3.options[seleccion3.selectedIndex].value;
+        }
+
+        function calcular(){
+            let sum = 0;
+            let val1 = parseFloat(seleccion.value);
+            let val2 = parseFloat(seleccion2.value);
+            let val3 = parseFloat(seleccion3.value);
+
+            sum = val1 + val2 + val3;
+            alert('La suma en dinero de todos los componentes seleccionados es: $' + sum);
+        }
+    </script>
+</body>
+</html>

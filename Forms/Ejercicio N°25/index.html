@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Primera parte</h1>
+	<form>
+        <p>Ingrese un número: <input type="text" id="numero"></p>
+        <p><input type="button" value="Confirmar" onClick="mostrar()"></p>
+    </form>
+    <br>
+    <h1>Segunda parte</h1>
+    <form>
+        <p>Ingrese un número: <input type="text" id="numero1"></p>
+        <p>Ingrese otro número: <input type="text" id="numero2"></p>
+        <p><input type="button" value="Confirmar" onClick="mostrarMayor()"></p>
+    </form>
+    <br>
+    <h1>Tercera parte</h1>
+    <form>
+        <p>Ingrese su nombre: <input type="text" id="nombre"></p>
+        <p>Ingrese su apellido: <input type="text" id="apellido"></p>
+        <p><input type="button" value="Confirmar" onClick="concatenar()"></p>
+    </form>
+    
+    <script>
+        //Primera parte
+        let Elevado = 0;
+        
+		function mostrar() {
+            let num = document.getElementById('numero').value;
+            Elevado = num ** 3;
+            alert('El número ingresado y elevado al cubo es: ' + Elevado);
+        }
+        
+        //Segunda parte
+        function mostrarMayor(){
+        	let entradaNumero1 = document.getElementById("numero1");
+  			let entradaNumero2 = document.getElementById("numero2");
+  			let numero1 = parseFloat(entradaNumero1.value);
+  			let numero2 = parseFloat(entradaNumero2.value);
+
+  			if (isNaN(numero1) || isNaN(numero2)) {
+    			alert("Por favor ingrese números válidos.");
+  			} 
+            else if (numero1 > numero2) {
+    			alert("El número mayor es: " + numero1);
+  			} 
+            else if (numero2 > numero1) {
+    			alert("El número mayor es: " + numero2);
+  			} 
+            else {
+    			alert("Ambos números son iguales.");
+  			}  
+        }
+        
+        //Tercera parte
+        function concatenar(){
+         	let Nombre = document.getElementById("nombre").value;
+  			let Apellido = document.getElementById("apellido").value;
+            alert('Su nombre es ' + Nombre '. Y su apellido es ' + Apellido + '.');
+        }
+    </script>
+
+</body>
+</html>

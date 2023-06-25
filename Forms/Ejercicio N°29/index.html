@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Edad de ingreso</h1>
+    <form>
+        <input type="radio" id="radio1" name="edad">Menor a 18 años.
+        <br>
+        <input type="radio" id="radio2" name="edad">Mayor a 18 años.
+        <br>
+        <input type="button" value="Mostrar" onClick="mostrarSeleccionado()">
+    </form>
+
+    <script>
+        function mostrarSeleccionado() {
+            if (document.getElementById('radio1').checked) {
+                alert('No puede ingresar');
+            }
+            if (document.getElementById('radio2').checked) {
+                alert('Puede ingresar');
+            }
+        }
+    </script>
+
+</body>
+</html>

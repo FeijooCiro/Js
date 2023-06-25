@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+	<h1>Seleccionar Deportes</h1>
+
+	<input type="checkbox" id="checkboxFutbol" value="Fútbol">
+	<label for="checkboxFutbol">Fútbol</label><br>
+
+	<input type="checkbox" id="checkboxBasket" value="Básket">
+	<label for="checkboxBasket">Básket</label><br>
+
+	<input type="checkbox" id="checkboxTenis" value="Tenis">
+	<label for="checkboxTenis">Tenis</label><br>
+	<button onclick="mostrarDeportes()">Mostrar Deportes Seleccionados</button>
+
+	<p>Deportes Seleccionados: <span id="deportesSeleccionados"></span></p>
+    
+    <script>
+		function mostrarDeportes() {
+  			let checkboxFutbol = document.getElementById("checkboxFutbol");
+  			let checkboxBasket = document.getElementById("checkboxBasket");
+  			let checkboxTenis = document.getElementById("checkboxTenis");
+            
+  			let deportesSeleccionados = "";
+            
+  			if (checkboxFutbol.checked) {
+    			deportesSeleccionados += checkboxFutbol.value + ", ";
+  			}
+
+  			if (checkboxBasket.checked) {
+    			deportesSeleccionados += checkboxBasket.value + ", ";
+  			}
+
+  			if (checkboxTenis.checked) {
+    			deportesSeleccionados += checkboxTenis.value + ", ";
+  			}
+
+  			deportesSeleccionados = deportesSeleccionados.slice(0, -2);
+
+  			let deportesSeleccionadosElement = document.getElementById("deportesSeleccionados");
+  			deportesSeleccionadosElement.textContent = deportesSeleccionados;
+		}
+    </script>
+
+</body>
+</html>

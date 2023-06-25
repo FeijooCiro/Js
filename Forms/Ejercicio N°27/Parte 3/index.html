@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+	<label for="pizzaSelect">Seleccione una pizza:</label>
+	<select id="pizzaSelect">
+  		<option value="queso">Queso - $4</option>
+  		<option value="jamon-y-queso">Jamón y Queso - $6</option>
+  		<option value="especial">Especial - $10</option>
+	</select>
+	<label for="cantidadInput">Cantidad:</label>
+	<input type="text" id="cantidadInput">
+	<button onclick="calcularImporte()">Calcular Importe</button>
+	<p>Importe Total: $<span id="importeTotal"></span></p>
+    
+    <script>
+		function calcularImporte() {
+  			// Obtener la pizza seleccionada y la cantidad ingresada
+  			var pizzaSelect = document.getElementById("pizzaSelect");
+  			var cantidadInput = document.getElementById("cantidadInput");
+
+  			var pizza = pizzaSelect.value;
+  			var cantidad = parseInt(cantidadInput.value);
+
+  			// Calcular el importe total según la pizza seleccionada y la cantidad ingresada
+  			var importeTotal = 0;
+
+  			if (pizza === "queso") {
+    			importeTotal = 4 * cantidad;
+  			} else if (pizza === "jamon-y-queso") {
+    			importeTotal = 6 * cantidad;
+  			} else if (pizza === "especial") {
+    			importeTotal = 10 * cantidad;
+  			}
+
+  			// Mostrar el importe total en el elemento HTML correspondiente
+  			var importeTotalElement = document.getElementById("importeTotal");
+  			importeTotalElement.textContent = importeTotal;
+		}
+    </script>
+
+</body>
+</html>

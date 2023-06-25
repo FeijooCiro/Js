@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de JavaScript</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+	<h1>Registro de Visitas</h1>
+
+	<form id="formulario">
+  		<label for="nombre">Nombre:</label>
+  		<input type="text" id="nombre" required><br>
+
+  		<label for="email">Email:</label>
+  		<input type="email" id="email" required><br>
+
+  		<label for="comentarios">Comentarios:</label><br>
+  		<textarea id="comentarios" rows="4" cols="30" required></textarea><br>
+
+  		<button type="submit">Registrar</button>
+	</form>
+    
+    <script>
+		let formulario = document.getElementById("formulario");
+
+		formulario.addEventListener("submit", function(event) {
+  			event.preventDefault();
+    
+  			let nombre = document.getElementById("nombre").value;
+  			let email = document.getElementById("email").value;
+  			let comentarios = document.getElementById("comentarios").value;
+
+  			let mensaje = "Nombre: " + nombre + "\nEmail: " + email + "\nComentarios: " + comentarios;
+  			alert(mensaje);
+
+  			formulario.reset();
+		});
+    </script>
+
+</body>
+</html>
