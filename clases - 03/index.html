@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <p>Ingrese su nombre:<input type="text" id="nom"></p>
+        <p>Ingrese su fecha de nacimiento:<input type="text" id="nacim"></p>
+        <p>Ingrese su DNI:<input type="text" id="dni"></p>
+        <p>Ingrese su género:<input type="text" id="gen"></p>
+        <p>Ingrese su peso (kg):<input type="text" id="peso"></p>
+        <p>Ingrese su altura (m):<input type="text" id="alt"></p>
+        <p><input type="button" value="Confirmar" onClick="mostrar()"></p>
+    </form>
+
+    <script>
+        class CPersona {
+            constructor(nombre, fechaNacimiento, DNI, genero, peso, altura){
+                this.nombre = nombre;
+                this.fechaNacimiento = fechaNacimiento;
+                this.DNI = DNI;
+                this.genero = genero;
+                this.peso = peso;
+                this.altura = altura;
+            }
+
+            calcularIMC(){
+                let cuadrado = this.altura ** 2;
+                let resultado = this.peso / cuadrado;
+                
+                if(resultado < 20){
+                    return "Su peso está muy por debajo de lo ideal.";
+                } else if(resultado >= 20 && resultado < 25){
+                    return "Su peso está por debajo de lo ideal";
+                } else if(resultado == 25){
+                    return "Su peso es ideal.";
+                } else if(resultado > 25 && resultado <= 30){
+                    return "Su peso está por encima de lo ideal.";
+                } else if(resultado > 30){
+                    return "Su peso está muy por encima de lo ideal.";
+                }
+            }
+
+            esMayorDeEdad(){
+                let fechaNacimientoObjeto = new Date(this.fechaNacimiento);
+                let fechaActual = new Date();
+                let edad = fechaActual.getFullYear() - fechaNacimientoObjeto.getFullYear();
+
+                if (edad >= 18) {
+                    return "Usted es mayor de edad.";
+                } else {
+                    return "Usted es menor de edad.";
+                }
+            }
+
+            ComprobarGenero(){
+                if(this.genero != "Hombre" && this.genero != "Mujer" && this.genero != "No Binario"){
+                    return "Género incorrecto.";
+                } else {
+                    return " ";
+                }
+            }
+        }
+
+        function mostrar(){
+            let entradaNombre = document.getElementById("nom");
+            let entradaFechaNacimiento = document.getElementById("nacim");
+            let entradaDNI = document.getElementById("dni");
+            let entradaGenero = document.getElementById("gen");
+            let entradaPeso = document.getElementById("peso");
+            let entradaAltura = document.getElementById("alt");
+
+            let Nombre = entradaNombre.value;
+            let FechaNacimiento = entradaFechaNacimiento.value;
+            let DNI = parseFloat(entradaDNI.value);
+            let Genero = entradaGenero.value;
+            let Peso = parseFloat(entradaPeso.value);
+            let Altura = parseFloat(entradaAltura.value);
+
+            let Persona = new CPersona(Nombre, FechaNacimiento, DNI, Genero, Peso, Altura);
+            alert(Persona.calcularIMC() + " " + Persona.esMayorDeEdad() + " " + Persona.ComprobarGenero());
+        }
+    </script>
+</body>
+</html>
