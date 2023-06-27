@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <p>Ingrese su nombre:<input type="text" id="nom"></p>
+        <p>Ingrese el año en el que ingresó a la empresa:<input type="text" id="anio"></p>
+        <p>Ingrese su salario que posee:<input type="text" id="sal"></p>
+        <p>Ingrese su dirección:<input type="text" id="direc"></p>
+        <p><input type="button" value="Confirmar" onClick="mostrar()"></p>
+    </form>
+
+    <script>
+        class CEmpleado {
+            constructor(nombre, anioIngreso, salario, direccion){
+                this.nombre = nombre;
+                this.anioIngreso = anioIngreso;
+                this.salario = salario;
+                this.direccion = direccion;
+            }
+
+            antiguedad(){
+                const anioActual = new Date().getFullYear();
+                return anioActual - this.anioIngreso;
+            }
+
+            calleWallStreat(){
+                let dir = this.direccion;
+                if (dir.includes("Wall Street")) {
+                    alert("El empleado vive en la calle Wall Street.");
+                } 
+                else {
+                    alert("El empleado no vive en la calle Wall Street.");
+                }
+            }
+        }
+
+        function mostrar(){
+            let entradaNombre = document.getElementById("nom");
+            let entradaAnioIngreso = document.getElementById("anio");
+            let entradaSalario = document.getElementById("sal");
+            let entradaDireccion = document.getElementById("direc");
+            let Nombre = entradaNombre.value;
+            let AnioIngreso = parseFloat(entradaAnioIngreso.value);
+            let Salario = parseFloat(entradaSalario.value);
+            let Direccion = entradaDireccion.value;
+
+            let Empleado = new CEmpleado(Nombre, AnioIngreso, Salario, Direccion) ;
+            alert('La cantidad de años que lleva en la empresa son: ' + Empleado.antiguedad() + ". ");
+            Empleado.calleWallStreat()
+        }
+    </script>
+</body>
+</html>
