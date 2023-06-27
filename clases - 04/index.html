@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class CPassword {
+            constructor(longitud = 8, contraseña = '') {
+                this.longitud = longitud;
+                this.contraseña = contraseña;
+            }
+
+            esFuerte() {
+                let contadorMayusculas = 0;
+                let contadorMinusculas = 0;
+                let contadorNumeros = 0;
+
+                for (let i = 0; i < this.contraseña.length; i++) {
+                    const caracter = this.contraseña[i];
+                    if (caracter >= 'A' && caracter <= 'Z') {
+                        contadorMayusculas++;
+                    } else if (caracter >= 'a' && caracter <= 'z') {
+                        contadorMinusculas++;
+                    } else if (!isNaN(caracter)) {
+                        contadorNumeros++;
+                    }
+                }
+
+                return (
+                    contadorMayusculas > 2 &&
+                    contadorMinusculas > 1 &&
+                    contadorNumeros > 5
+                );
+            }
+
+            generarPassword() {
+                const caracteresMayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                const caracteresMinusculas = 'abcdefghijklmnopqrstuvwxyz';
+                const caracteresNumeros = '0123456789';
+
+                let contraseñaGenerada = '';
+
+                for (let i = 0; i < this.longitud; i++) {
+                    if (i < 2) {
+                        const indiceAleatorio = Math.floor(
+                            Math.random() * caracteresMayusculas.length
+                        );
+                        contraseñaGenerada += caracteresMayusculas[indiceAleatorio];
+                    } else if (i === 2) {
+                        const indiceAleatorio = Math.floor(
+                            Math.random() * caracteresMinusculas.length
+                        );
+                        contraseñaGenerada += caracteresMinusculas[indiceAleatorio];
+                    } else {
+                        const indiceAleatorio = Math.floor(
+                            Math.random() * caracteresNumeros.length
+                        );
+                        contraseñaGenerada += caracteresNumeros[indiceAleatorio];
+                    }
+                }
+
+                this.contraseña = contraseñaGenerada;
+                return contraseñaGenerada;
+            }
+        }
+
+        const password = new CPassword();
+        console.log('Contraseña generada:', password.generarPassword());
+        console.log('Es fuerte:', password.esFuerte());
+    </script>
+</body>
+</html>
