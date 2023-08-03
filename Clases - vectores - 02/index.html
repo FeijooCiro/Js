@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class CZooAnimal {
+            constructor(IdAnimal, Name, CageNumber, IdTypeAnimal, Weight){
+                this.IdAnimal = IdAnimal;
+                this.Name = Name;
+                this.CageNumber = CageNumber;
+                this.IdTypeAnimal = IdTypeAnimal;
+                this.Weight = Weight;
+            }
+
+            getIdAnimal(){
+                return this.IdAnimal;
+            }
+
+            getName(){
+                return this.Name;
+            }
+
+            getCageNumber(){
+                return this.CageNumber;
+            }
+
+            getIdTypeAnimal(){
+                return this.IdTypeAnimal;
+            }
+
+            getWeight(){
+                return this.Weight;
+            }
+
+            setIdAnimal(IdAnimal){
+                this.IdAnimal = IdAnimal;
+            }
+
+            setName(Name){
+                this.Name = Name;
+            }
+
+            setCageNumber(CageNumber){
+                this.CageNumber = CageNumber;
+            }
+
+            setIdTypeAnimal(IdTypeAnimal){
+                this.IdTypeAnimal = IdTypeAnimal;
+            }
+
+            setWeight(Weight){
+                this.Weight = Weight;
+            }
+        }
+
+
+        const Animals = [];
+
+        function addAnimal(IdAnimal, Name, CageNumber, IdTypeAnimal, Weight){
+            const Animal = CZooAnimal(IdAnimal, Name, CageNumber, IdTypeAnimal, Weight);
+            Animals.push(Animal);
+        }
+
+        function displayAnimals(Animals){
+            Animals.forEach(animal => {
+                console.log(`
+                    Id Animal: ${Animal.getIdAnimal()}
+                    Name: ${Animal.getName()}
+                    Cage Number: ${Animal.getCageNumber()}
+                    Id Type Animal: ${Animal.getIdTypeAnimal()}
+                    Weight: ${Animal.getWeight()}
+                `);
+            });
+        }
+
+        addAnimal(1, "Leon", 3, 1, 190);
+        addAnimal(2, "Camaleon", 5, 3, 0.059);
+        addAnimal(3, "Tigre", 3, 1, 250);
+        addAnimal(4, "Elefante", 1, 7, 5000);
+        addAnimal(5, "Leopardo", 3, 1, 30);
+        addAnimal(6, "Ciervo", 2, 7, 150);
+        addAnimal(7, "Aguila", 4, 6, 5);
+        addAnimal(8, "Lobo", 6, 5, 80);
+        addAnimal(9, "Tortuga", 5, 3, 150);
+        addAnimal(10, "Cocodrilo", 7, 3, 250);
+        addAnimal(11, "Canguro", 2, 4, 47);
+        addAnimal(12, "Lemur", 5, 8, 2);
+        addAnimal(13, "Mapache", 5, 9, 7);
+
+        console.log("Animales de la jaula 5 cuyo peso es menor a 3 kg.");
+        const ThreeMinus = Animals.filter(Animal => {
+            let cant = 0;
+            if(Animal.CageNumber() === 5 && Animal.Weight() < 3){
+                cant++;
+            } 
+            return cant;
+        });
+        displayAnimals(ThreeMinus);
+
+        console.log("Cantidad de animales de tipo felino que estan desde las jaulas 2 a la 5.");
+        const Fel = Animals.filter(Animal => {
+            for(let i = 2; i <= 5; i++){
+                return Animal.IdTypeAnimal() === 1;
+            }
+        });
+        displayAnimals(Fel);
+
+        console.log("Animales de la jaula 4 cuyo peso es menor a 120 kg.");
+        const Kilos = Animals.filter(Animal => {
+            return Animal.CageNumber() === 4 && Animal.Weight() < 120;
+        })
+    </script>
+</body>
+</html>
