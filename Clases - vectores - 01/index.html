@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        class CPerson {
+            constructor(id, apellido, nombre, fechaNacimiento, email) {
+                this.id = id;
+                this.apellido = apellido;
+                this.nombre = nombre;
+                this.fechaNacimiento = fechaNacimiento;
+                this.email = email;
+            }
+
+            getId() {
+                return this.id;
+            }
+
+            getApellido() {
+                return this.apellido;
+            }
+
+            getNombre() {
+                return this.nombre;
+            }
+
+            getFechaNacimiento() {
+                return this.fechaNacimiento;
+            }
+
+            getEmail() {
+                return this.email;
+            }
+
+            setId(id) {
+                this.id = id;
+            }
+
+            setApellido(apellido) {
+                this.apellido = apellido;
+            }
+
+            setNombre(nombre) {
+                this.nombre = nombre;
+            }
+
+            setFechaNacimiento(fechaNacimiento) {
+                this.fechaNacimiento = fechaNacimiento;
+            }
+
+            setEmail(email) {
+                this.email = email;
+            }
+        }
+
+        const persons = [];
+
+        function addPerson(id, apellido, nombre, fechaNacimiento, email) {
+            const person = new CPerson(id, apellido, nombre, fechaNacimiento, email);
+            persons.push(person);
+        }
+
+        function displayPersons(persons) {
+            persons.forEach(person => {
+                console.log(`
+                    ID: ${person.getId()}
+                    Apellido: ${person.getApellido()}
+                    Nombre: ${person.getNombre()}
+                    Fecha de Nacimiento: ${person.getFechaNacimiento()}
+                    Email: ${person.getEmail()}
+                `);
+            });
+        }
+
+        addPerson(1, "Smith", "John", "1990-08-15", "john.smith@gmail.com");
+        addPerson(2, "Simpson", "Lisa", "1985-05-12", "lisa.simpson@hotmail.com");
+        addPerson(3, "Stark", "Tony", "1970-12-25", "tony.stark@gmail.com");
+
+        console.log("Personas mayores de edad:");
+        const today = new Date();
+        const legalAge = 18;
+        const adults = persons.filter(person => {
+            const birthDate = new Date(person.getFechaNacimiento());
+            const age = today.getFullYear() - birthDate.getFullYear();
+            return age >= legalAge;
+        });
+        displayPersons(adults);
+
+        console.log("Personas con email de Gmail:");
+        const gmailUsers = persons.filter(person => person.getEmail().endsWith("@gmail.com"));
+        displayPersons(gmailUsers);
+
+        console.log("Personas cuyo apellido comienza con S:");
+        const startsWithS = persons.filter(person => person.getApellido().charAt(0) === "S");
+        displayPersons(startsWithS);
+    </script>
+  </body>
+</html>
