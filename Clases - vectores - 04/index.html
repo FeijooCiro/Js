@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class CEmpleados {
+            constructor(Apellido, Nombre, Genero, SueldoNeto, FechaIngreso){
+                this.Apellido = Apellido;
+                this.Nombre = Nombre;
+                this.Genero = Genero;
+                this.SueldoNeto = SueldoNeto;
+                this.FechaIngreso = FechaIngreso;
+            }
+
+            getApellido(){
+                return this.Apellido;
+            }
+
+            getNombre(){
+                return this.Nombre;
+            }
+
+            getGenero(){
+                return this.Genero;
+            }
+
+            getSueldoNeto(){
+                return this.SueldoNeto;
+            }
+
+            getFechaIngreso(){
+                return this.FechaIngreso;
+            }
+
+            setApellido(Apellido){
+                return this.Apellido = Apellido;
+            }
+
+            setNombre(Nombre){
+                return this.Nombre = Nombre;
+            }
+
+            setGenero(Genero){
+                return this.Genero = Genero;
+            }
+
+            setSueldoNeto(SueldoNeto){
+                return this.SueldoNeto = SueldoNeto;
+            }
+
+            setFechaIngreso(FechaIngreso){
+                return this.FechaIngreso = FechaIngreso;
+            }
+        }
+
+
+        const Empleados = [];
+
+        function addEmpleado(apellido, nombre, genero, sueldoNeto, fechaIngreso) {
+            const empleado = new CEmpleados(apellido, nombre, genero, sueldoNeto, fechaIngreso);
+            Empleados.push(empleado);
+        }
+
+        function displayEmpleados(Empleados) {
+            Empleados.forEach(empleado => {
+                console.log(`
+                    Apellido: ${empleado.getApellido()}
+                    Nombre: ${empleado.getNombre()}
+                    Genero: ${empleado.getGenero()}
+                    Sueldo Neto: ${empleado.getSueldoNeto()}
+                    Fecha de Ingreso: ${empleado.getFechaIngreso()}
+                `);
+            });
+        }
+
+        addEmpleado("Rodriguez", "María", "F", 450000, "2010-03-23");
+        addEmpleado("Perez", "Alberto", "M", 300000, "2003-07-05");
+        addEmpleado("Melano", "Mario", "M", 160000, "2015-10-24");
+        addEmpleado("Mendez", "Paz", "X", 500000, "2022-02-03");
+        addEmpleado("Samite", "Morena", "F", 400000, "2014-04-25");
+        addEmpleado("Suarez", "Ariel", "X", 550000, "2021-05-23");
+        addEmpleado("Traverso", "Magalí", "F", 300000, "2017-04-18");
+        addEmpleado("Marquez", "Juan", "H", 190000, "2005-09-04");
+        addEmpleado("Gonsalez", "Marta", "F", 490000, "2009-08-03");
+        addEmpleado("Carrizo", "Elizabeth", "X", 500000, "2016-10-22");
+
+        console.log('Cantidad de genero fememino con sueldo neto mayores a 400000:');
+        const GenFem = Empleados.filter(empleado => empleado.getGenero() === "F" && empleado.getSueldoNeto() > 400000);
+        displayEmpleados(GenFem);
+
+        console.log('Todos los generos masulinos con sueldo entre 150000 y 200000:');
+        const GenMas = Empleados.filter(empleado => empleado.getSueldoNeto() >= 150000 && empleado.getSueldoNeto() <= 200000);
+        displayEmpleados(GenMas);
+
+        const Hoy = new Date();
+        const cincoAnios = 5;
+        const Tiempo = Empleados.filter(empleado => {
+            const fechaIngreso = new Date(empleado.getFechaIngreso());
+            const anio = Hoy.getFullYear() - fechaIngreso.getFullYear();
+            
+            return anio >= cincoAnios && empleado.getSueldoNeto() > 350000;
+        });
+        console.log('Todos los generos X cuya antiguedad sea mayor a 5 años y sueldo mayor a 350000:');
+        displayEmpleados(Tiempo);
+    </script>
+</body>
+</html>
