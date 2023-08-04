@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Numero {
+            constructor(valor) {
+                this.valor = valor;
+            }
+
+            esPrimo() {
+                if (this.valor <= 1) return false;
+                for (let i = 2; i <= Math.sqrt(this.valor); i++) {
+                    if (this.valor % i === 0) return false;
+                }
+                return true;
+            }
+
+            esPerfecto() {
+                let sumDivisores = 0;
+                for (let i = 1; i <= this.valor / 2; i++) {
+                    if (this.valor % i === 0) sumDivisores += i;
+                }
+                return this.valor === sumDivisores;
+            }
+
+            esPar() {
+                return this.valor % 2 === 0;
+            }
+
+            esImpar() {
+                return this.valor % 2 !== 0;
+            }
+        }
+
+        const numeros = [];
+
+        function agregarNumero(valor) {
+            const numero = new Numero(valor);
+            numeros.push(numero);
+        }
+
+        function mostrarResultados() {
+            console.log("Número | Es Primo | Es Perfecto | Es Par | Es Impar");
+            console.log("---------------------------------------------");
+            numeros.forEach(numero => {
+                console.log(
+                    `${numero.valor} | ${numero.esPrimo()} | ${numero.esPerfecto()} | ${numero.esPar()} | ${numero.esImpar()}`
+                );
+            });
+        }
+        
+        while (true) {
+            const input = prompt("Ingrese un número (o escriba 'salir' para finalizar):");
+            if (input.toLowerCase() === "salir") break;
+            const numeroIngresado = parseInt(input);
+            if (!isNaN(numeroIngresado)) {
+                agregarNumero(numeroIngresado);
+            } else {
+                console.log("Entrada inválida. Ingrese un número válido o escriba 'salir'.");
+            }
+        }
+
+        mostrarResultados();
+    </script>
+</body>
+</html>
