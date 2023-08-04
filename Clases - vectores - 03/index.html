@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Inmueble {
+            constructor(propietario, tipoTransaccion, costoTransaccion, habitaciones, banos, superficieTerreno, superficieCubierta) {
+                this.propietario = propietario;
+                this.tipoTransaccion = tipoTransaccion;
+                this.costoTransaccion = costoTransaccion;
+                this.habitaciones = habitaciones;
+                this.banos = banos;
+                this.superficieTerreno = superficieTerreno;
+                this.superficieCubierta = superficieCubierta;
+            }  
+        } 
+  
+        const inmuebles = [];
+        
+        // Casas
+        inmuebles.push(new Inmueble("Propietario1", "venta", 150000, 3, 2, 300, 150));
+        inmuebles.push(new Inmueble("Propietario2", "venta", 180000, 4, 3, 400, 180));
+        inmuebles.push(new Inmueble("Propietario3", "alquiler", 1200, 2, 1, 200, 90));
+        inmuebles.push(new Inmueble("Propietario4", "venta", 200000, 4, 3, 350, 160));
+        inmuebles.push(new Inmueble("Propietario5", "alquiler", 1500, 3, 2, 250, 120));
+        inmuebles.push(new Inmueble("Propietario6", "venta", 220000, 5, 4, 450, 220));
+  
+        // Quintas
+        inmuebles.push(new Inmueble("Propietario7", "venta", 300000, 5, 3, 1500, 500));
+        inmuebles.push(new Inmueble("Propietario8", "venta", 250000, 4, 2, 1200, 400));
+        inmuebles.push(new Inmueble("Propietario9", "alquiler", 1800, 3, 2, 800, 300));
+  
+        // Departamentos
+        inmuebles.push(new Inmueble("Propietario10", "venta", 100000, 2, 1, 80, 60));
+        inmuebles.push(new Inmueble("Propietario11", "alquiler", 800, 1, 1, 50, 40));
+        inmuebles.push(new Inmueble("Propietario12", "venta", 120000, 3, 2, 100, 80));
+        inmuebles.push(new Inmueble("Propietario13", "venta", 90000, 2, 1, 70, 55));
+  
+        const casasEnVenta = inmuebles.filter(inmueble => inmueble.tipoTransaccion === "venta" && inmueble.habitaciones > 0);
+        const totalCasasEnVenta = casasEnVenta.reduce((total, inmueble) => total + inmueble.costoTransaccion, 0);
+        const costoPromedioCasasEnVenta = totalCasasEnVenta / casasEnVenta.length;
+  
+        console.log("Costo promedio de las casas en venta:", costoPromedioCasasEnVenta);
+  
+        const casaConMasMetrosCubiertos = casasEnVenta.reduce((casaAnterior, casaActual) => casaAnterior.superficieCubierta > casaActual.superficieCubierta ? casaAnterior : casaActual);
+  
+        console.log("Casa con más metros cuadrados cubiertos:");
+        console.log(casaConMasMetrosCubiertos);
+  
+        const casasMasDeTresBanosYMasDe200Mts = casasEnVenta.filter(casa => casa.banos > 3 && casa.superficieCubierta > 200);
+  
+        console.log("Casas con más de tres baños y superficie cubierta mayor a 200 mts:");
+        console.log(casasMasDeTresBanosYMasDe200Mts);
+    </script>
+</body>
+</html>
